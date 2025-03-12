@@ -3,8 +3,6 @@ package com.authentication_microservice.Controller;
 import com.authentication_microservice.Persistence.Entity.UserEntity;
 import com.authentication_microservice.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.Repository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

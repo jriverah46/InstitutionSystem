@@ -1,9 +1,6 @@
 package com.authentication_microservice.Persistence.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +14,8 @@ import java.util.UUID;
 @Getter
 @Setter
 public class UserEntity {
+    @Id
+    @GeneratedValue
     private UUID id;
     private String email;
     private String password;

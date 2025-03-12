@@ -3,7 +3,7 @@ spring:
     name: course-microservice
 
   config:
-    import: "http://localhost:8081"
+    import: "configserver:http://localhost:8081"
 
 
 

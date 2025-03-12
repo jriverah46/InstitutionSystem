@@ -3,7 +3,7 @@ package com.course_microservice.Service;
 import com.course_microservice.FeignClient.UserFeignClient;
 import com.course_microservice.Persistence.Entity.CourseEntity;
 import com.course_microservice.Persistence.Repository.CourseRepository;
-import models.Teacher;
+import com.course_microservice.models.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

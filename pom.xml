@@ -7,14 +7,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.5</version>
+        <version>3.2.4</version>
         <relativePath/>
     </parent>
 
     <groupId>org.example</groupId>
     <artifactId>InstitutionSystem</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <name>InstitutionSystem</name>
     <packaging>pom</packaging>
 
@@ -48,8 +47,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.4.3</version>
             </plugin>
         </plugins>
     </build>
+
+
+
 </project>

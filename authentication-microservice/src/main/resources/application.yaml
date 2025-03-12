@@ -3,6 +3,6 @@ spring:
     name: authentication-microservice
 
   config:
-    import: "http://localhost:8081"
+    import: "configserver:http://localhost:8081"
 
 

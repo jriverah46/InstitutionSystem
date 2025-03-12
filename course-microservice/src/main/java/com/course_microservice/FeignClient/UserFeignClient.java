@@ -1,6 +1,6 @@
 package com.course_microservice.FeignClient;
 
-import models.Teacher;
+import com.course_microservice.models.Teacher;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
