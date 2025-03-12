@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: authentication-microservice
+
+  config:
+    import: "http://localhost:8081"
+
+

@@ -23,6 +23,7 @@
         <module>authentication-microservice</module>
         <module>enrollment-microservice</module>
         <module>notes-microservice</module>
+        <module>config-service</module>
     </modules>
 
     <properties>

@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: notes-microservice
+
+  config:
+    import: "http://localhost:8081"

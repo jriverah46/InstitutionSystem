@@ -1,0 +1,15 @@
+server:
+  port:8081
+spring:
+  application:
+    name: config-service
+
+  cloud:
+    config:
+      server:
+        default-label: main
+        uri: https://github.com/jriverah46/InstitutionSystem
+        search-path: config-data
+
+
+
