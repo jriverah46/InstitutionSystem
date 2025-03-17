@@ -40,7 +40,7 @@ public class CourseService {
     }
     //get course by course name
     public CourseEntity getCourseByCoursename(String courseName){
-        CourseEntity course=courseRepository.findCourseByCoursename(courseName);
+        CourseEntity course=courseRepository.findCourseByCourseName(courseName);
         return course;
     }
 

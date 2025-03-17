@@ -9,7 +9,7 @@ import java.util.UUID;
 @Repository
 public interface CourseRepository extends JpaRepository<CourseEntity, UUID> {
     CourseEntity findCourseById(UUID id);
-    CourseEntity findCourseByCoursename(String courseName);
+    CourseEntity findCourseByCourseName(String courseName);
 
 
 }

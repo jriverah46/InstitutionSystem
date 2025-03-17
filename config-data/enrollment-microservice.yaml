@@ -1,18 +1,18 @@
 server:
   port: 8004
 
-  spring:
-    datasource:
-      url: jdbc:postgresql://localhost:5432/enrollmentDb
-      username: joserivera
-      password: Md55015501
-      driver-class-name: org.postgresql.Driver
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/enrollmentDb
+    username: joserivera
+    password: Md55015501
+    driver-class-name: org.postgresql.Driver
 
-    jpa:
-      hibernate:
-        ddl-auto: update
-      database: postgresql
-      database-platform: org.hibernate.dialect.PostgreSQLDialect
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 
 
