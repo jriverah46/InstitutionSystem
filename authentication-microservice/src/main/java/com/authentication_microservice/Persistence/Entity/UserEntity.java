@@ -18,6 +18,7 @@ public class UserEntity {
     @GeneratedValue
     private UUID id;
     private String email;
+    private String name;
     private String password;
     @Enumerated(EnumType.STRING)
     private UserType userType;

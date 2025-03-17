@@ -1,32 +1,26 @@
-package com.course_microservice.Persistence.Entity;
+package com.enrollment_microservice.Persistence.Entity;
 
+import com.enrollment_microservice.models.CourseDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table (name = "course")
+@Table
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class CourseEntity {
+public class EnrollmentEntity {
     @Id
     @GeneratedValue
     private UUID id;
-    @Column(name = "course_name")
-    private String courseName;
-    @Embedded
-    private Schedule schedule;
-    private UUID idTeacher;
-    private String teacherName;
-
-
-
-
-
+    private UUID studentId;
+    @ElementCollection
+    private List<CourseDto> courses;
 }

@@ -7,10 +7,19 @@ import java.util.UUID;
 
 public class Teacher {
     private UUID id;
+    private String name;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
     private UserType userType=UserType.teacher;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public UUID getId() {
         return id;
