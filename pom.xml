@@ -23,6 +23,7 @@
         <module>enrollment-microservice</module>
         <module>notes-microservice</module>
         <module>config-service</module>
+        <module>eureka-service</module>
     </modules>
 
     <properties>
