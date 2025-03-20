@@ -28,5 +28,12 @@ public class GradeEntity {
 
     private Double finalGrade;
 
-
+    public GradeEntity(UUID idStudent, UUID idCourse, Double grade1, Double grade2, Double grade3, Double finalGrade) {
+        this.idStudent = idStudent;
+        this.idCourse = idCourse;
+        this.grade1 = grade1;
+        this.grade2 = grade2;
+        this.grade3 = grade3;
+        this.finalGrade = finalGrade;
+    }
 }

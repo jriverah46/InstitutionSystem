@@ -3,13 +3,14 @@ package com.course_microservice.Service;
 import com.course_microservice.FeignClient.UserFeignClient;
 import com.course_microservice.Persistence.Entity.CourseEntity;
 import com.course_microservice.Persistence.Repository.CourseRepository;
-import com.course_microservice.models.Teacher;
+import com.course_microservice.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
 
 @Service
 public class CourseService {
@@ -58,21 +59,37 @@ public class CourseService {
     }
 
     //assign a teacher to the course
-    public CourseEntity assignTeacher(UUID courseId, Teacher teacher){
+    public CourseEntity assignTeacher(UUID courseId, UUID teacherId){
         CourseEntity course=courseRepository.findCourseById(courseId);
-        course.setIdTeacher(userFeignClient.getTeacherById(teacher.getId()).getId());
-        course.setTeacherName(userFeignClient.getTeacherById(teacher.getId()).getName());
-        return course;
+        User user =userFeignClient.getTeacherById(teacherId);
+        course.setIdTeacher(user.getId());
+        course.setTeacherName(user.getName());
+
+        return courseRepository.save(course);
     }
 
-    //create course with teacher
-    public CourseEntity createCourseWithTeacher(CourseEntity course,Teacher teacher){
-        Teacher newTeacher= userFeignClient.saveTeacher(teacher);
-        course.setIdTeacher(newTeacher.getId());
-        course.setTeacherName(newTeacher.getName());
+    //create course with new teacher
+    public CourseEntity createCourseWithNewTeacher(CourseEntity course, User user){
+        User newUserEntity = userFeignClient.saveTeacher(user);
+        course.setIdTeacher(newUserEntity.getId());
+        course.setTeacherName(newUserEntity.getName());
 
         return saveCourse(course);
 
+    }
+
+    public CourseEntity createCourseWithTeacher(CourseEntity course,UUID idTeacher){
+        User teacher =userFeignClient.getTeacherById(idTeacher);
+        course.setIdTeacher(teacher.getId());
+        course.setTeacherName(teacher.getName());
+        CourseEntity newCourse= courseRepository.save(course);
+        return saveCourse(newCourse);
+
+    }
+
+    public User getTeacher(UUID id){
+        User userEntity =userFeignClient.getTeacherById(id);
+        return userEntity;
     }
 
 

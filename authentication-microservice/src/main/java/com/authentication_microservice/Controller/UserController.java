@@ -1,9 +1,6 @@
 package com.authentication_microservice.Controller;
 
-import com.authentication_microservice.Models.EnrollmentDto;
-import com.authentication_microservice.Models.EnrollmentRequestDto;
-import com.authentication_microservice.Models.GradeDto;
-import com.authentication_microservice.Models.SaveGradeRequesDto;
+import com.authentication_microservice.Models.*;
 import com.authentication_microservice.Persistence.Entity.UserEntity;
 import com.authentication_microservice.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +16,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @PostMapping("/save")
+    public ResponseEntity<UserEntity>saveUser(@RequestBody UserEntity userEntity){
+        return ResponseEntity.ok(userService.saveUser(userEntity));
+
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<UserEntity>getUserById(@PathVariable("id") UUID id){
         UserEntity user=userService.getByUserId(id);
@@ -28,11 +31,12 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
     @GetMapping("/teacher/{id}")
-    public ResponseEntity<UserEntity>getTeacher(@PathVariable("id") UUID id){
-        UserEntity teacher=userService.getTeacher(id);
+    public ResponseEntity<UserEntity>getTeacherById(@PathVariable("id") UUID id){
+         UserEntity teacher=userService.getTeacher(id);
         if (teacher==null){
             return ResponseEntity.notFound().build();
         }
+        System.out.println(teacher);
         return ResponseEntity.ok(teacher);
     }
     //enrolling courses from user
@@ -40,6 +44,10 @@ public class UserController {
     public ResponseEntity<EnrollmentDto> enroll(@RequestBody List<String>courseNames,@PathVariable("idStudent") UUID idStudent){
        EnrollmentDto enrollmentDto= userService.enrollStudentToCourses(idStudent,courseNames);
        return  ResponseEntity.ok(enrollmentDto);
+    }
+    @GetMapping("/enrollment/{id}")
+    public ResponseEntity<EnrollmentDto>enrollmentByStudent(@PathVariable("id") UUID id){
+        return ResponseEntity.ok(userService.enrollmentByStudent(id));
     }
 
     //saving notes from user

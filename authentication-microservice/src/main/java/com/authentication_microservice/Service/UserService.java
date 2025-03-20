@@ -4,6 +4,7 @@ import com.authentication_microservice.FeigClients.CoursesFeignClient;
 import com.authentication_microservice.FeigClients.EnrollmentFeignClient;
 import com.authentication_microservice.FeigClients.NotesFeignClient;
 import com.authentication_microservice.Models.*;
+
 import com.authentication_microservice.Persistence.Entity.UserEntity;
 import com.authentication_microservice.Persistence.Entity.UserType;
 import com.authentication_microservice.Persistence.Repository.UserRepository;
@@ -24,6 +25,11 @@ public class UserService {
     @Autowired
     private NotesFeignClient notesFeignClient;
 
+    public UserEntity saveUser(UserEntity userEntity){
+        return userRepository.save(userEntity);
+
+    }
+
     public UserEntity getByUserId(UUID userId){
         UserEntity userEntity=userRepository.findUserById(userId);
         return userEntity;
@@ -31,9 +37,10 @@ public class UserService {
 
     //getting teacher by id
     public UserEntity getTeacher(UUID userId){
-        UserEntity userEntity=userRepository.findUserById(userId);
-        if (userEntity.getUserType().equals(UserType.teacher)){
-            return userEntity;
+        UserEntity teacher=userRepository.findUserById(userId);
+
+        if (teacher.getUserType().equals(UserType.teacher)){
+            return teacher;
         }
         else {
             throw new IllegalArgumentException("the user is not a teacher");
@@ -72,6 +79,12 @@ public class UserService {
         EnrollmentDto enroll=enrollmentFeignClient.enroll(enrollmentRequestDto);
         return enroll;
 
+    }
+
+    //searching the student enrollment by his id
+    public EnrollmentDto enrollmentByStudent(UUID idStudent){
+        EnrollmentDto enrollment= enrollmentFeignClient.enrollmentByStudent(idStudent);
+        return enrollment;
     }
 
     //saving notes from user

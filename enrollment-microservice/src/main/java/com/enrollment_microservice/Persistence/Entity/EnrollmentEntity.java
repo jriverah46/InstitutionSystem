@@ -23,4 +23,9 @@ public class EnrollmentEntity {
     private UUID studentId;
     @ElementCollection
     private List<CourseDto> courses;
+
+    public EnrollmentEntity(UUID studentId, List<CourseDto> courses) {
+        this.studentId = studentId;
+        this.courses = courses;
+    }
 }

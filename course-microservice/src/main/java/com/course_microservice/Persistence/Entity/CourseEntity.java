@@ -25,8 +25,15 @@ public class CourseEntity {
     private UUID idTeacher;
     private String teacherName;
 
+    public CourseEntity(String courseName, Schedule schedule, UUID idTeacher, String teacherName) {
+        this.courseName = courseName;
+        this.schedule = schedule;
+        this.idTeacher = idTeacher;
+        this.teacherName = teacherName;
+    }
 
-
-
-
+    public CourseEntity(String courseName, Schedule schedule) {
+        this.courseName = courseName;
+        this.schedule = schedule;
+    }
 }

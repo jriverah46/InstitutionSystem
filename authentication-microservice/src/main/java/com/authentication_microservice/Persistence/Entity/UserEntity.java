@@ -13,6 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Getter
 @Setter
+
 public class UserEntity {
     @Id
     @GeneratedValue
@@ -22,4 +23,20 @@ public class UserEntity {
     private String password;
     @Enumerated(EnumType.STRING)
     private UserType userType;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", userType=" + userType +
+                '}';
+    }
+    public UserEntity(String email, String name, String password, UserType userType) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.userType = userType;
+    }
 }

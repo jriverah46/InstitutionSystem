@@ -35,4 +35,9 @@ public class EnrollmentService {
         }
         return false;
     }
+
+    public EnrollmentEntity getEnrollmentByIdStudent(UUID idStudent){
+        EnrollmentEntity enrollment=enrollmentRepository.findByStudentId(idStudent);
+        return  enrollment;
+    }
 }
