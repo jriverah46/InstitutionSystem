@@ -10,8 +10,8 @@ spring:
         git:
           default-label: main
           uri: https://github.com/jriverah46/InstitutionSystem
-          username: "jriverah46"
-          password: "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"
+          username: jriverah46
+          password: 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
           search-paths: config-data
 
 
