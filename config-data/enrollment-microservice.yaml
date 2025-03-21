@@ -1,5 +1,5 @@
 server:
-  port: ${SERVER:${SEVER_PORT:0}}
+  port: ${PORT:${SEVER_PORT:0}}
 
 spring:
   datasource:
@@ -18,7 +18,7 @@ eureka:
   fetch-registry: true
   register-with-eureka: true
   instance:
-      instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+    instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
 
 
 
