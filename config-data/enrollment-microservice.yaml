@@ -1,5 +1,5 @@
 server:
-  port: 8004
+  port: ${PORT:$SEVER_PORT:0}}
 
 spring:
   datasource:
@@ -13,6 +13,13 @@ spring:
       ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  fetch-registry: true
+  register-with-eureka: true
+  instance:
+    hostname:
+      instance-id: "${spring.application.name}:${spring.application.instance-id:${random.value}}
 
 
 
