@@ -10,7 +10,6 @@ spring:
         git:
           default-label: main
           uri: https://github.com/jriverah46/InstitutionSystem
-          
           search-paths: config-data
 
 

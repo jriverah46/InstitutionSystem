@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:$SEVER_PORT:0}}
+  port: ${SERVER:${SEVER_PORT:0}}
 
 spring:
   datasource:
