@@ -5,5 +5,5 @@ eureka:
   client:
     fetch-register: true
     register-with-eureka: true
-    instance:
-      hostname: localhost
+  instance:
+    hostname: localhost
