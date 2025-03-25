@@ -7,3 +7,33 @@ eureka:
     register-with-eureka: true
   instance:
     hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+      routes:
+        - id: authentication-microservice
+          uri: lb//authentication-microservice
+          predicates:
+            -Path=/user/**
+
+        - id: course-microservice
+          uri: lb//course-microservice
+          predicates:
+            -Path=/courses/**
+
+        - id: enrollment-microservice
+          uri: lb//enrollment-microservice
+          predicates:
+            -Path=/enrollment/**
+
+        - id: notes-microservice
+          uri: lb//notes-microservice
+          predicates:
+            -Path=/grades/**
+
+
