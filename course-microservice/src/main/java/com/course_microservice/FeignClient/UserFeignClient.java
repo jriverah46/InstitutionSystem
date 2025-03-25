@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.UUID;
-@FeignClient(name = "authentication-microservice", url = "http://localhost:8001/user")
+@FeignClient(name = "authentication-microservice")
 public interface UserFeignClient {
     @GetMapping("/teacher/{id}")
     User getTeacherById(@PathVariable("id") UUID id);
