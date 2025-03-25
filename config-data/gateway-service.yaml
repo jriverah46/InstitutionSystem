@@ -17,23 +17,23 @@ spring:
 
       routes:
         - id: authentication-microservice
-          uri: lb//authentication-microservice
+          uri: lb://authentication-microservice
           predicates:
-            -Path=/user/**
+            - Path=/user/**
 
         - id: course-microservice
-          uri: lb//course-microservice
+          uri: lb://course-microservice
           predicates:
-            -Path=/courses/**
+            - Path=/courses/**
 
         - id: enrollment-microservice
-          uri: lb//enrollment-microservice
+          uri: lb://enrollment-microservice
           predicates:
-            -Path=/enrollment/**
+            - Path=/enrollment/**
 
         - id: notes-microservice
-          uri: lb//notes-microservice
+          uri: lb://notes-microservice
           predicates:
-            -Path=/grades/**
+            - Path=/grades/**
 
 
